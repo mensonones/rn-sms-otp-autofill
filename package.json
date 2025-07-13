@@ -1,6 +1,6 @@
 {
   "name": "rn-sms-otp-autofill",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "React Native SMS OTP autofill for Android - TurboModule implementation for automatic SMS OTP code detection and filling",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
