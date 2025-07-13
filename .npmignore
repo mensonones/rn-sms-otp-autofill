@@ -13,8 +13,8 @@
 example/
 **/example/
 
-# Source files (we only need compiled lib/)
-src/
+# Source files are needed for some tools that reference the source export
+# src/
 
 # Development dependencies and configs
 node_modules/

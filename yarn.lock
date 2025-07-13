@@ -11520,10 +11520,11 @@ __metadata:
     react-native: 0.79.2
     react-native-builder-bob: ^0.40.12
     react-native-monorepo-config: ^0.1.9
+    rn-sms-otp-autofill: 1.1.1
   languageName: unknown
   linkType: soft
 
-"rn-sms-otp-autofill@workspace:.":
+"rn-sms-otp-autofill@1.1.1, rn-sms-otp-autofill@workspace:.":
   version: 0.0.0-use.local
   resolution: "rn-sms-otp-autofill@workspace:."
   dependencies:
