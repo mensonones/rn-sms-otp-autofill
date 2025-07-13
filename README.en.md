@@ -3,31 +3,31 @@
 [![Português](https://img.shields.io/badge/lang-Português-green.svg)](README.md)
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.en.md)
 
-Módulo React Native para preenchimento automático de códigos OTP recebidos via SMS no Android.
+React Native module for automatic OTP code filling from SMS on Android.
 
-## 📦 Instalação
+## 📦 Installation
 
 ```sh
 npm install rn-sms-otp-autofill
 ```
 
-## 🏗️ Requisitos
+## 🏗️ Requirements
 
-Este módulo é implementado como **TurboModule** e requer:
+This module is implemented as a **TurboModule** and requires:
 
 - **React Native 0.68+**
-- **New Architecture habilitada**
+- **New Architecture enabled**
 
-Para habilitar a New Architecture em seu projeto:
+To enable New Architecture in your project:
 
 ### Android
-No arquivo `android/gradle.properties`:
+In the `android/gradle.properties` file:
 ```properties
 newArchEnabled=true
 ```
 
 ### iOS
-No arquivo `ios/Podfile`:
+In the `ios/Podfile` file:
 ```ruby
 use_frameworks! :linkage => :static
 $RNNewArchEnabled = true
@@ -35,45 +35,45 @@ $RNNewArchEnabled = true
 
 ### Android
 
-1. **Permissões**: As permissões necessárias são **incluídas automaticamente** pelo módulo via manifest merge:
+1. **Permissions**: Required permissions are **automatically included** by the module via manifest merge:
 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_SMS" />
 <uses-permission android:name="android.permission.READ_SMS" />
 ```
 
-> 💡 **Dica**: Não é necessário adicionar essas permissões manualmente no seu `AndroidManifest.xml` - elas são mergeadas automaticamente durante o build. Porém, é uma boa prática verificar se aparecem no manifest final do app.
+> 💡 **Tip**: You don't need to manually add these permissions to your `AndroidManifest.xml` - they are automatically merged during build. However, it's good practice to verify they appear in the final app manifest.
 
-2. **React Native 0.68+**: O módulo é automaticamente linkado via autolinking (TurboModule).
+2. **React Native 0.68+**: The module is automatically linked via autolinking (TurboModule).
 
-> **Nota**: Este módulo requer React Native 0.68+ com New Architecture habilitada, pois é implementado como TurboModule.
+> **Note**: This module requires React Native 0.68+ with New Architecture enabled, as it's implemented as a TurboModule.
 
 ### iOS
 
-O iOS possui autofill nativo de OTP, então este módulo é específico para Android.
+iOS has native OTP autofill, so this module is Android-specific.
 
-## 🚀 Uso Básico
+## 🚀 Basic Usage
 
-### Importação - Opções Disponíveis
+### Import - Available Options
 
 ```typescript
-// Opção 1: Importação nomeada (recomendado)
+// Option 1: Named import (recommended)
 import {
   requestOtpAutofill,
   listenOtpAutofill,
   stopOtpAutofill,
 } from 'rn-sms-otp-autofill';
 
-// Opção 2: Importação default
+// Option 2: Default import
 import RnSmsOtpAutofill from 'rn-sms-otp-autofill';
 // Use: RnSmsOtpAutofill.requestOtpAutofill()
 
-// Opção 3: Acesso direto ao TurboModule
+// Option 3: Direct TurboModule access
 import { RnSmsOtpAutofill } from 'rn-sms-otp-autofill';
-// Para uso avançado do módulo nativo
+// For advanced native module usage
 ```
 
-### Exemplo de Uso
+### Usage Example
 
 ```typescript
 import React, { useState, useEffect } from 'react';
@@ -105,7 +105,7 @@ export default function OtpScreen() {
     <TextInput
       value={otp}
       onChangeText={setOtp}
-      placeholder="Digite o código OTP"
+      placeholder="Enter OTP code"
       keyboardType="numeric"
       maxLength={6}
     />
@@ -113,7 +113,7 @@ export default function OtpScreen() {
 }
 ```
 
-## 🎣 Hook Personalizado
+## 🎣 Custom Hook
 
 ```typescript
 // useOtpAutofill.ts
@@ -143,22 +143,22 @@ export function useOtpAutofill(
 ## 📚 API
 
 ### `requestOtpAutofill()`
-Inicia o listener para mensagens SMS.
+Starts the SMS message listener.
 
 ### `listenOtpAutofill(callback, onError?)`
-Escuta por códigos OTP. Retorna função para remover o listener.
+Listens for OTP codes. Returns function to remove the listener.
 
 ### `stopOtpAutofill()`
-Para o listener e limpa recursos.
+Stops the listener and cleans up resources.
 
-## ⚠️ Importante
+## ⚠️ Important
 
-- **React Native**: Requer versão 0.68+ com New Architecture
-- **Android**: ✅ Suportado (API 16+)
-- **iOS**: Use o autofill nativo do sistema
-- **Permissões**: RECEIVE_SMS e READ_SMS (incluídas automaticamente)
-- **Detecção**: Códigos de 4-6 dígitos apenas
-- **Arquitetura**: TurboModule (New Architecture)
+- **React Native**: Requires version 0.68+ with New Architecture
+- **Android**: ✅ Supported (API 16+)
+- **iOS**: Use native system autofill
+- **Permissions**: RECEIVE_SMS and READ_SMS (automatically included)
+- **Detection**: 4-6 digit codes only
+- **Architecture**: TurboModule (New Architecture)
 
 ## 📄 License
 
