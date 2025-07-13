@@ -5,6 +5,7 @@ local.properties
 # Build directories
 android/build/
 android/app/build/
+android/app/.cxx/
 ios/build/
 ios/DerivedData/
 
@@ -14,6 +15,7 @@ android/.idea/
 android/.kotlin/
 .bundle/
 .vscode/
+*.log
 
 # Platform specific
 .DS_Store
