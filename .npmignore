@@ -1,0 +1,50 @@
+# Development files
+.vscode/
+.idea/
+*.log
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Example app
+example/
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
+
+# Build artifacts (keep lib/)
+node_modules/
+.expo/
+
+# Test files
+src/__tests__/
+**/*.test.*
+**/*.spec.*
+jest.config.*
+coverage/
+
+# Configuration files
+.eslintrc.*
+.prettierrc.*
+.editorconfig
+lefthook.yml
+turbo.json
+babel.config.js
+eslint.config.mjs
+tsconfig.json
+!tsconfig.build.json
+
+# CI/CD
+.github/
+.circleci/
+.travis.yml
+.gitlab-ci.yml
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

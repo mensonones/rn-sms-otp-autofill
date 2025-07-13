@@ -1,0 +1,43 @@
+# Local development files
+local.properties
+.xcode.env.local
+
+# Build directories
+android/build/
+android/app/build/
+ios/build/
+ios/DerivedData/
+
+# IDE and cache directories
+android/.gradle/
+android/.idea/
+android/.kotlin/
+.bundle/
+.vscode/
+
+# Platform specific
+.DS_Store
+Thumbs.db
+
+# React Native
+metro.config.local.js
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# CocoaPods
+ios/Pods/
+ios/*.xcworkspace/xcuserdata/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Firebase (if not already handled by parent)
+google-services.json
+GoogleService-Info.plist
