@@ -1,5 +1,6 @@
-#import <RnSmsOtpAutofillSpec/RnSmsOtpAutofillSpec.h>
+#import <React/RCTBridgeModule.h>
+#import <React/RCTTurboModule.h>
 
-@interface RnSmsOtpAutofill : NSObject <NativeRnSmsOtpAutofillSpec>
+@interface RnSmsOtpAutofill : NSObject <RCTBridgeModule, RCTTurboModule>
 
 @end

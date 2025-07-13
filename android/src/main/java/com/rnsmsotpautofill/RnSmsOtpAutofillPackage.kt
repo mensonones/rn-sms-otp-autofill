@@ -24,6 +24,7 @@ class RnSmsOtpAutofillPackage : BaseReactPackage() {
         RnSmsOtpAutofillModule.NAME,
         false,  // canOverrideExistingModule
         false,  // needsEagerInit
+        false,  // hasConstants
         false,  // isCxxModule
         true // isTurboModule
       )

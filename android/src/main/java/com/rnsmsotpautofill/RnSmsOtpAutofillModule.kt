@@ -7,6 +7,7 @@ import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.bridge.WritableMap
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.modules.core.DeviceEventManagerModule
+import com.facebook.react.bridge.ReactMethod
 
 @ReactModule(name = RnSmsOtpAutofillModule.NAME)
 class RnSmsOtpAutofillModule(reactContext: ReactApplicationContext) :
@@ -36,30 +37,26 @@ class RnSmsOtpAutofillModule(reactContext: ReactApplicationContext) :
     return granted
   }
 
-  override fun getName(): String {
-    return NAME
-  }
-
   /**
-   * Solicita ao nativo que tente autofill do OTP
+   * Requests the native module to attempt OTP autofill
    */
   override fun requestOtpAutofill() {
     if (!hasSmsPermission()) {
-      sendErrorToJs("Permissão de SMS não concedida.")
+      sendErrorToJs("SMS permission not granted.")
       return
     }
     if (smsReceiver != null) {
-      // Se já existe, desregistra para evitar leaks/duplicidade
+      // If it already exists, unregister to avoid leaks/duplicates
       reactApplicationContext.unregisterReceiver(smsReceiver)
       smsReceiver = null
     }
     smsReceiver = SmsBroadcastReceiver { otp ->
-      // Validação extra: só aceita OTP de 4-6 dígitos e ignora duplicidade
+      // Extra validation: only accept 4-6 digit OTP and ignore duplicates
       if (otp.length in 4..6 && otp.all { it.isDigit() }) {
         Log.d(NAME, "Autofill OTP: $otp")
         sendOtpToJs(otp)
       } else {
-        sendErrorToJs("Formato de OTP inválido: $otp")
+        sendErrorToJs("Invalid OTP format: $otp")
       }
     }
     val filter = IntentFilter("android.provider.Telephony.SMS_RECEIVED")
@@ -67,7 +64,7 @@ class RnSmsOtpAutofillModule(reactContext: ReactApplicationContext) :
   }
 
   /**
-   * Para o listener de SMS e limpa recursos
+   * Stops the SMS listener and cleans up resources
    */
   override fun stopOtpAutofill() {
     smsReceiver?.let {

@@ -1,6 +1,6 @@
 {
   "name": "rn-sms-otp-autofill",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React Native SMS OTP autofill for Android - TurboModule implementation for automatic SMS OTP code detection and filling",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -15,7 +15,7 @@
   "files": [
     "lib",
     "android/src",
-    "android/build.gradle", 
+    "android/build.gradle",
     "android/gradle.properties",
     "ios/*.h",
     "ios/*.mm",
@@ -85,7 +85,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": ">=0.68.0"
   },
   "workspaces": [
     "example"
@@ -141,14 +141,6 @@
         }
       ]
     ]
-  },
-  "codegenConfig": {
-    "name": "RnSmsOtpAutofillSpec",
-    "type": "modules",
-    "jsSrcsDir": "src",
-    "android": {
-      "javaPackageName": "com.rnsmsotpautofill"
-    }
   },
   "create-react-native-library": {
     "languages": "kotlin-objc",

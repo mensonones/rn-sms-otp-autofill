@@ -1,18 +1,23 @@
 import { NativeEventEmitter, Platform } from 'react-native';
-import RnSmsOtpAutofill from './NativeRnSmsOtpAutofill';
-
-// Export the TurboModule for direct access
-export { default as RnSmsOtpAutofill } from './NativeRnSmsOtpAutofill';
+import { RnSmsOtpAutofill } from 'rn-sms-otp-autofill';
 
 export function requestOtpAutofill() {
   if (Platform.OS === 'android') {
-    RnSmsOtpAutofill.requestOtpAutofill();
+    try {
+      RnSmsOtpAutofill.requestOtpAutofill();
+    } catch (error) {
+      console.error('Error requesting OTP autofill:', error);
+    }
   }
 }
 
 export function stopOtpAutofill() {
   if (Platform.OS === 'android') {
-    RnSmsOtpAutofill.stopOtpAutofill();
+    try {
+      RnSmsOtpAutofill.stopOtpAutofill();
+    } catch (error) {
+      console.error('Error stopping OTP autofill:', error);
+    }
   }
 }
 
@@ -38,11 +43,3 @@ export function listenOtpAutofill(
   }
   return () => {};
 }
-
-// Default export with all functions
-export default {
-  requestOtpAutofill,
-  stopOtpAutofill,
-  listenOtpAutofill,
-  RnSmsOtpAutofill,
-};

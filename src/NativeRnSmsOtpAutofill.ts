@@ -3,13 +3,14 @@ import { TurboModuleRegistry } from 'react-native';
 
 export interface Spec extends TurboModule {
   /**
-   * Solicita ao nativo que tente autofill do OTP
+   * Requests the native module to attempt OTP autofill
    */
   requestOtpAutofill(): void;
   /**
-   * Para o listener de SMS e limpa recursos
+   * Stops the SMS listener and cleans up resources
    */
   stopOtpAutofill(): void;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>('RnSmsOtpAutofill');
+const NativeModule = TurboModuleRegistry.getEnforcing<Spec>('RnSmsOtpAutofill');
+export default NativeModule;
