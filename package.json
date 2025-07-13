@@ -13,23 +13,15 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "src",
     "lib",
-    "android",
-    "ios",
-    "cpp",
+    "android/src",
+    "android/build.gradle", 
+    "android/gradle.properties",
+    "ios/*.h",
+    "ios/*.mm",
     "*.podspec",
-    "react-native.config.js",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "!**/.*"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "example": "yarn workspace rn-sms-otp-autofill-example",
@@ -37,7 +29,7 @@
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
+    "prepare": "bob build && find lib/ -name '*.map' -delete",
     "release": "release-it --only-version"
   },
   "keywords": [
@@ -141,12 +133,7 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "module",
-        {
-          "esm": true
-        }
-      ],
+      "module",
       [
         "typescript",
         {

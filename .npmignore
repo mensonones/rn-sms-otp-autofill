@@ -7,18 +7,41 @@
 # Git
 .git/
 .gitignore
+.gitattributes
 
-# Example app
+# Example app - COMPLETELY EXCLUDE
 example/
+**/example/
 
-# Documentation (keep README.md)
+# Source files (we only need compiled lib/)
+src/
+
+# Development dependencies and configs
+node_modules/
+yarn.lock
+package-lock.json
+.yarn/
+
+# Documentation (keep README.md and LICENSE)
 docs/
 *.md
 !README.md
+CHANGELOG.md
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
 
-# Build artifacts (keep lib/)
-node_modules/
+# Build artifacts (keep only necessary lib/)
 .expo/
+android/build/
+android/.gradle/
+android/gradle/
+android/gradlew*
+android/local.properties
+android/*.keystore
+ios/build/
+ios/*.xcworkspace/
+ios/Pods/
+lib/**/*.map
 
 # Test files
 src/__tests__/
@@ -26,6 +49,9 @@ src/__tests__/
 **/*.spec.*
 jest.config.*
 coverage/
+__tests__/
+__mocks__/
+__fixtures__/
 
 # Configuration files
 .eslintrc.*
@@ -36,7 +62,10 @@ turbo.json
 babel.config.js
 eslint.config.mjs
 tsconfig.json
-!tsconfig.build.json
+tsconfig.build.json
+.yarnrc.yml
+.nvmrc
+.watchmanconfig
 
 # CI/CD
 .github/
@@ -48,3 +77,6 @@ tsconfig.json
 *.tmp
 *.temp
 .cache/
+
+# React Native specific
+metro.config.js
