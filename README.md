@@ -207,7 +207,3 @@ Arquitetura: TurboModule (New Architecture)
 
 MIT
 
----
-
-Se quiser salvar isso como arquivo `.md`, posso gerar um link para você baixar. Deseja?
-
